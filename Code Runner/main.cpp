@@ -7,10 +7,9 @@
 //
 
 
-#define prog 2
+#define prog 1
 
 #if(prog == 2)
-
 
 #include <iostream>
 using namespace std;
@@ -23,7 +22,6 @@ int main() {
     const int ARRAY_SIZE = 5;
     int my_array[ARRAY_SIZE] = {9, 5, 2, 8, 1};
     
-    
     cout << "init array state: \n";
     for (int i = 0; i < ARRAY_SIZE; i++) {
         cout << my_array[i] << " ";
@@ -31,29 +29,20 @@ int main() {
     
     cout << endl;
     
-    // need a marker loop
+    // marker loop
     // marker sets the bottom point of the iterator loop
     // counts up (from high to low) by decrement
     for (int i = ARRAY_SIZE - 1; i >= 0; i--) {
-        
-        cout << "i: " << i << "\n";
         
         // need an iterator loop
         // counts down,
         // makes compares,
         // swaps order of numbers
         for (int j = 0; j <= i - 1; j++) {
-            cout << my_array[j] << "\n";
-            cout << "vs. \n";
-            cout << my_array[j + 1] << "\n";
-            
             if (my_array[j] > my_array[j + 1]) {
-                cout << "swap" << "\n";
                 swap(my_array[j], my_array[j + 1]);
             }
         }
-        
-        
     }
     
     cout << "end array state: \n";
@@ -67,35 +56,42 @@ int main() {
     return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #elif(prog == 1)
 
 #include <iostream>
 using namespace std;
 
+// SHUFFLE
+
 int main() {
     
-    int i = 1;
-
-    while (i < 10)  {
-        if ( (++i) % 2 == 0)
-            cout << i << endl;
+    // random seed
+    srand(time(0));
+    
+    // need an integer array
+    const int ARRAY_SIZE = 5;
+    int my_array[ARRAY_SIZE] = {9, 5, 2, 8, 1};
+    
+    cout << "init array state: \n";
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+    // do the shuffle
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        // pick random slot in array
+        int j = rand() % (i + 1);
+        
+        int tmp = my_array[i];
+        my_array[i] = my_array[j];
+        my_array[j] = tmp;
     }
 
+    cout << "end array state: \n";
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
 
