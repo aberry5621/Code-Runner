@@ -7,9 +7,72 @@
 //
 
 
-#define prog 1
+#define prog 3
 
-#if(prog == 2)
+#if(prog == 3)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    cout << "Selection Sort! \n";
+    
+    // need an integer array to work with
+    const int ARRAY_SIZE = 5;
+    int my_array[ARRAY_SIZE] = {9, 5, 2, 8, 1};
+
+    cout << "init array state: \n";
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        cout << my_array[i] << " ";
+    }
+    
+    cout << endl;
+    
+    // selection sort
+    
+    
+    // outer loop tracks array split: sorted and unsorted
+    for (int i = 0; i <= ARRAY_SIZE; i++) {
+        
+        cout << "i loop: " << i << endl;
+        
+        int current_min_index = i;
+        
+        cout << "current index value: " << my_array[current_min_index] << endl;
+        
+        int current_min = my_array[i];
+        
+        // inner loop
+        // collect for compare the left most item for sort compare
+        // search for smaller value on unsorted side of array
+        // if find smaller value, swap into init position
+        for (int j = i + 1; j < ARRAY_SIZE; j++) {
+            int check_min = my_array[j];
+            if (current_min > check_min) {
+                current_min = my_array[j];
+                current_min_index = j;
+            }
+            if (current_min_index != i) {
+                my_array[current_min_index] = my_array[i];
+                my_array[i] = current_min;
+            }
+        }
+        
+    }
+    
+    cout << "end array state: \n";
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        cout << my_array[i] << " ";
+    }
+    
+    cout << endl;
+    return 0;
+}
+
+
+
+#elif(prog == 2)
 
 #include <iostream>
 using namespace std;
