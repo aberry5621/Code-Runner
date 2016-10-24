@@ -53,22 +53,11 @@ int main() {
     // split in twain
     // based on key numeric value
     // repeat search
-    
-    
-    
-    
-    
-    
+
     return 0;
     
     
 }
-
-
-
-
-
-
 
 #elif(prog == 4)
 
